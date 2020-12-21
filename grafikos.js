@@ -112,9 +112,7 @@ var figurPosition  =  new THREE.Vector3(0, 0, 0);
             this.redraw = function () {
 			
 
-                scene.remove(rook);
-                scene.remove(king);
-                scene.remove(queen);
+
                 scene.remove(bishop);
 
 
@@ -140,120 +138,8 @@ var cam1, cam2, cam1xd, cam2xd;
 addCam();
         render();
 
-        function generateRook(segments, x, y, z) {
-            var pointsX = [
-                250, 220, 208, 
-		201, 196, 194, 194, 197, 
-		203, 213, 225, 208, 203, 
-		208, 228, 226, 224, 221, 
-		217, 212, 204, 188, 185, 
-		174, 169, 168, 175, 172, 
-		172, 173, 250 ];
-	    var pointsY = [
-		34, 46, 58, 
-		70, 82, 94, 106, 118, 
-		130, 142, 154, 166, 178, 
-		190, 202, 214, 226, 238, 
-		250, 262, 274, 286, 298, 
-		310, 322, 334, 346, 358, 
-		370, 382, 382];
-	    // add 10 random spheres
-            var points = [];
-            var height = 5;
-            var count = 31;
-            for (var i = 0; i < count; i++) {
-                points.push(new THREE.Vector3((250-pointsX[i])/4, 0, (pointsY[30]-pointsY[i]-230)/4));
-            }
 
-
-
-            var latheGeometry = new THREE.LatheGeometry(points, Math.ceil(segments), 0, 2 * Math.PI);
-            rook = createMesh(latheGeometry);
-			rook.position.set(x, y,z);
-            scene.add(rook);
-        }
-		
-		function generateKing(segments, x, y, z) {
-            var pointsX = [
-			0, 50, 50, //virsune
-			50, 50, 100, // keburele
-			100, 75, 50, 
-            50, 50, 100,
-            110, 120, 140,
-            160, 190, 210,
-            205, 200, 190,
-            180, 170, 160,
-            150, 140, 130,
-            120, 115, 110,
-            105, 100, 100,
-            100, 105, 110,
-			115, 120, 130,
-            140, 150, 160,
-            170, 180, 190,
-            200, 205, 210,
-			240, 250, 250,
-            250, 240, 210,
-            210, 180, 150,
-            180, 200, 210,
-			210, 220, 230,
-            240, 250, 280,
-            300, 300, 0,
-		 ];
-
-	    // add 10 random spheres
-            var points = [];
-            var height = 5;
-            var count = 72;
-            for (var i = 0; i < count; i++) {
-                points.push(new THREE.Vector3(pointsX[i]/10, 0, (750-i*20)/10));
-            }
-
-            var latheGeometry = new THREE.LatheGeometry(points, Math.ceil(segments), 0, 2 * Math.PI);
-            king = createMesh(latheGeometry);
-			king.position.set(x, y,z);
-            scene.add(king);
-        }
-		
-			function generateQueen(segments, x, y, z) {
-            var pointsX = [
-			0, 60, 80,
-            91, 97, 100, 
-            97, 91, 80,
-            60, 200, 220, 
-			250,250, 250,
-			230, 230, 230,
-            220, 210, 190,
-            180, 160, 150,
-            140, 130, 120,
-			115, 110, 105,
-            100, 100, 100,
-            105, 110,
-			115, 120, 130,
-            140, 150, 160,
-            170, 180, 190,
-            200, 205, 210,
-			240, 250, 250,
-            250, 240, 210,
-            210, 180, 150,
-            180, 200, 210,
-			210, 220, 230,
-            240, 250, 280,
-            300, 300, 0,
-		 ];
-
-	    // add 10 random spheres
-            var points = [];
-            var height = 5;
-            var count = 69;
-            for (var i = 0; i < count; i++) {
-					points.push(new THREE.Vector3(pointsX[i]/12 , 0 , (600-i*20)/12 ));
-            }
-
-            var latheGeometry = new THREE.LatheGeometry(points, Math.ceil(segments), 0, 2 * Math.PI);
-            queen = createMesh(latheGeometry);
-			queen.position.set(x, y,z);
-            scene.add(queen);
-        }
+           
 		
 		function generateBishop(segments, x, y, z) {
             var pointsX = [
